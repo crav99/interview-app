@@ -1,25 +1,39 @@
-import { Center, SimpleGrid, Card, CardBody, Image, Stack, Heading, Text, Container } from "@chakra-ui/react";
+import {
+  Center,
+  SimpleGrid,
+  Card,
+  CardBody,
+  Image,
+  Stack,
+  Heading,
+  Text,
+  Container,
+  Link,
+} from "@chakra-ui/react";
 
 export default function List({ data }) {
   return (
-    <Container maxW='80%' paddingTop='5rem'>
+    <Container maxW="80%" paddingTop="5rem">
       <Center>
         <SimpleGrid columns={3} spacing={5}>
           {data.products.map((product) => (
-            <a href={`product/${product.id}`}>
-              <Card maxW='sm'>
+            <Card maxW="sm">
+              <Link href={`product/${product.id}`}>
                 <CardBody>
-                  <Image src={`https://content.backcountry.com/${product.productMainImage.mediumImg}`} width="100%" />
-                  <Stack mt='6' spacing='3'>
-                      <Heading size='md'>{product.title}</Heading>
-                      <Heading size='sm'>{product.brand.name}</Heading>
-                      <Text color='blue.600' fontSize='2xl' alignSelf="">
-                        {`$${product.minSalePrice}`}
-                      </Text>
-                    </Stack>
-                  </CardBody>
-              </Card>
-            </a>
+                  <Image
+                    src={`https://content.backcountry.com/${product.productMainImage.mediumImg}`}
+                    width="100%"
+                  />
+                  <Stack mt="6" spacing="3">
+                    <Heading size="md">{product.title}</Heading>
+                    <Heading size="sm">{product.brand.name}</Heading>
+                    <Text color="blue.600" fontSize="2xl" alignSelf="">
+                      {`$${product.minSalePrice}`}
+                    </Text>
+                  </Stack>
+                </CardBody>
+              </Link>
+            </Card>
           ))}
         </SimpleGrid>
       </Center>
